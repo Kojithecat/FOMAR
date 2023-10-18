@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.4.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2021-03-01T17:44:22.339652730"/>
+	<meta name="created" content="00:00:00">
+</head>
+<body lang="en-GB" dir="ltr"><h1 align="center" style="margin-right: 6.6cm; background: transparent; page-break-after: avoid">
+Euler's angles</h1>
+<p>Objective: 
+</p>
+<p>The aim of this exercise is to show an object (defined in the file
+in the <b>p1_escena.pov&nbsp; </b>using <br/>
+Pov-Ray's scene
+description language) displaying a continuous sequence in which it
+rotates <br/>
+from its original orientation at t=0 to a new
+orientation at t=1 specified by means of its&nbsp; 3x3 rotation
+matrix.</p>
+<p>The full 3x3 rotation matrix data will be obtained from your
+personal data encoded in your id document number, <br/>
+as explained
+below. <br/>
+<br/>
+<br/>
+
+</p>
+<p>Procedure: 
+</p>
+<p>The task to be accomplished will be divided in the following
+points:</p>
+<p>a)&nbsp; Build the complete rotation matrix, with all of its 9
+real elements different from zero, by choosing any 3 elements,
+<br/>
+assigning them numerical values from the data of your Id
+document number and then deriving the remaining <br/>
+elements from
+the general properties of a rotation matrix. 
+</p>
+<p>For example, if we denote the elements of the first column by [x1,
+x2, x3]; &nbsp; and [y1, y2, y3] , [z1, z2, z3] for <br/>
+the second
+and third columns respectively, they are subject to the relations:</p>
+<p>&nbsp; [x1, x2, x3].[x1, x2, x3] = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[y1, y2, y3] . [y1, y2, y3] = 1 &nbsp; &nbsp; &nbsp;&nbsp; [z1, z2,
+z3]&nbsp; . [z1, z2, z3] = 1 <br/>
+&nbsp; [x1, x2, x3].[y1, y2, y3] =
+0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [x1, x2, x3] . [z1, z2,
+z3]&nbsp; = 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [y1, y2, y3]
+. [z1, z2, z3] = 0</p>
+<p>And also similar conditions for the rows:</p>
+<p>&nbsp; [x1, y1, z1].[x1, y1, z1] = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[x2, y2, z2].[x2, y2, z2] = 1&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+[x3, y3, z3].[x3, y3, z3] = 1<br/>
+&nbsp; [x1, y1, z1].[x2, y2, z2] =
+0 &nbsp; &nbsp; &nbsp;&nbsp; [x1, y1, z1].[x3, y3, z3] = 0 &nbsp; &nbsp;
+&nbsp; &nbsp;&nbsp; [x2, y2, z2].[x3, y3, z3] = 0 
+</p>
+<p><br/>
+You can choose therefore at will 3 of the 9 elements, say
+the values x1, x3, z1, assign them values <br/>
+in the range [0,1]
+taking 2 successive digits of your id. number reversed, and then find
+the remaining <br/>
+values by making use of the previous expressions,
+one at a time. For example, if your id number is</p>
+<p>DNI#=41489762, you would assign the values 0.26, 0.79, 0.84 to the
+chosen elements. You are strongly <br/>
+encouraged to pick the
+positions of the 3 elements such that exactly 2 of them belong to the
+same column, <br/>
+with the third pertaining obviously to a different
+column. The reason being that if in one column (or row <br/>
+for that
+matter) we know 2 elements, then the third element is immediately
+found from the fact that the <br/>
+three elements form a unit vector
+(e1^2 + e2^2 + e3^2 = 1). 
+</p>
+<p>So for example from the values of x1, x3, z1 &nbsp; you can can
+immediately find suitable values for x2<br/>
+in the column [x1, x2,
+x3]&nbsp; and y1 in the row [x1, y1, z1].</p>
+<p>Finally, once a column is completely known, if in a different
+column one element is also known, then the fact<br/>
+that the two
+columns are orthonormal allow for a simple reconstruction of the
+unknown values. Doing so<br/>
+for each column allow for the complete
+rebuild of the rotation matrix out of only 3 elements, and
+therefore<br/>
+accomplish point a). (Should you have difficulties,
+you can first proceed with the remaining points using<br/>
+first any
+of the rotation matrices available in the subdirectory <b>final</b>).</p>
+<p>Also, the following matrix rotation data is provided for testing
+purposes:</p>
+<p>0.53632&nbsp;&nbsp;&nbsp; -0.30202&nbsp;&nbsp; 0.78813&nbsp; 1st
+row <br/>
+0.68301&nbsp;&nbsp;&nbsp;&nbsp; 0.70388&nbsp; -0.19506&nbsp;
+2nd row <br/>
+-0.49583&nbsp;&nbsp;&nbsp; 0.64292&nbsp;&nbsp; 0.58379&nbsp;
+3rd row 
+</p>
+<p>Note that the elements of the test rotation matrix are stored in
+the file <b>rijxcolumnes&nbsp; </b><br/>
+(notice that the order is
+<b>first column elements</b>, <b>then second column elements</b> and
+then third).&nbsp;</p>
+<p>You should start visualising the scene, executing the commands: 
+</p>
+<p>povray +w640 +h480 +a0.2 p1_escena.pov 
+</p>
+<p>that will create the file p1_escena.png which you can visualize by
+clicking on it or <br/>
+via the command line, for example by
+typing<br/>
+eog p1_escena.png or<br/>
+xv p1_escena.png<br/>
+&nbsp; 
+</p>
+<p>Notice that, associated to the object and attached to it, there is
+a reference system with <br/>
+axis in colours red, green and blue. <br/>
+&nbsp;
+</p>
+<p><i>b) You will have to find out which 3 elementary consecutive
+rotations</i> <br/>
+<i>R1(z,fi_z) R2(y,fi_y) R3(x,fi_x)&nbsp; will
+achieve the desired change in the orientation of</i> <br/>
+<i>the
+object, and to build an animated sequence of frames which goes
+smoothly from the</i> <br/>
+<i>initial orientation (fi_i = 0)&nbsp;
+at t=0 to the calculated values fi_i&nbsp; (fi_z,&nbsp; fi_y,&nbsp;
+fi_x) at t=1.</i> <br/>
+&nbsp; 
+</p>
+<p>Complete the following steps: 
+</p>
+<p>1) Find out the (symbolic) general 3x3&nbsp; rotation matrix
+expressed in terms of the 3 variables <i>fi_i</i> <br/>
+<b>(Euler's
+angles)</b> entering in&nbsp; R1(z,fi_z) R2(y,fi_y) R3(x,fi_x) (just
+making the product of <br/>
+the 3 matrices does it). 
+</p>
+<p>2) Write down the equations which relate the r_ij values of the
+general 3x3 matrix to the <br/>
+fi_z,&nbsp; fi_y,&nbsp; fi_x&nbsp;
+angles. 
+</p>
+<p>3) Write an algorithm which allows to find&nbsp; fi_z,&nbsp;
+fi_y,&nbsp; fi_x&nbsp; from the r_ij values (see point 5 below) 
+</p>
+<p>4) Implement it in a program which will read the file <b>rijxcolumnes
+</b>and compute and print the values of <br/>
+fi_z, fi_y, fi_x&nbsp;
+into the file fisef.out (separated by commas). 
+</p>
+<p>5) execute your program, generating the file <b>fisef.out</b> 
+</p>
+<p>(Note that this file exists already, so that you can check if your
+programs works <br/>
+correctly). If so, you will be able to complete
+the following points. 
+</p>
+<p>6) Have a look into the file <b>p1_verifica.pov</b>, particularly
+the lines: 
+</p>
+<p><b>#fopen Rij &quot;rijxcolumnes&quot; read</b> <br/>
+<b>#read
+(Rij,r11,r21,r31,r12,r22,r32,r13,r23,r33)</b> 
+</p>
+<p><b>#fopen Fis &quot;fisef.out&quot; read</b> <br/>
+<b>#read
+(Fis,f1z,f1y,f1x)</b> 
+</p>
+<p>The Pov-Ray code reads both the r_ij elements and the Euler's
+angles <i>(Fis,f1z,f1y,f1x)</i> <br/>
+Note that the desired
+orientation coming from r_ij is displayed in the form of a reference
+<br/>
+system in grey colour (objecte&nbsp; SRob,&nbsp; Sistema de
+Referencia objectiu): 
+</p>
+<p><b>// Escena</b> <br/>
+<b>object {SRob matrix &lt;
+r11,r21,r31,r12,r22,r32,r13,r23,r33, 0.0, 0.0, 0.0 &gt; }</b> <br/>
+<b>//</b>
+</p>
+<p>and on the other hand the representation of the object (and the
+coloured reference system fixed <br/>
+to it) is based on the Euler
+angles: 
+</p>
+<p><b>object{Roda_dentada rotate f1x*x rotate f1y*y rotate f1z*z}</b>
+</p>
+<p><b>object {SRef rotate f1x*x rotate f1y*y rotate f1z*z}</b> 
+</p>
+<p>Note that the first transformation applied to the coordinates of
+the object points <br/>
+is R(x), the second R(y) and the last R(z),
+i.e., the reverse order of the one used <br/>
+in point&nbsp; 1. This
+is a due to the fact that Pov-Ray uses always the universal reference
+<br/>
+system when applying transformations. 
+</p>
+<p>Render the scene: 
+</p>
+<p>povray +w800 +h600 +a0.2 p1_verifica.pov <br/>
+eom p1_verifica.png
+</p>
+<p>If everything went well, the 3 grey axes and the colour ones will
+coincide (meaning <br/>
+that the orientation generated by the 3
+elementary rotations that you have calculated <br/>
+is correct, i.e,
+they reproduce the full 9 elements of the required rotation matrix).
+If <br/>
+this is the case, then the grey axes will not be visible,
+since they are inside the coloured <br/>
+ones, which are sligthly
+larger in diameter.</p>
+<p>7) create a new directory, where you will generate a sequence of
+images <br/>
+displaying a continuously varying time dependent
+orientation. Copy the file<br/>
+rijxcolumnes and replace the values
+with that of the matrix that you built in point a).<br/>
+(Failing
+that, you can use instead any of the rotation matrices available in
+the subdirectory <b><br/>
+final</b>). Copy also the various .pov and
+.ini files and&nbsp; execute your program again, generating <br/>
+the
+file <b>fisef.out</b>&nbsp; for your matrix.&nbsp; It is required
+that the sequence satisfies that at&nbsp; t=0 the<br/>
+orientation is
+given by the identity matrix (i.e., that shown by p1_escena.pov)&nbsp;
+whilst <br/>
+at t=1 it must match the final oritentation shown by
+p1_verifica.pov. 
+</p>
+<p>Pov-Ray uses a&nbsp; variable named <i>clock</i> whose values are
+specified in a initialization file <br/>
+(p1_anim.ini in this
+example), so that a single povray code can generate a varying
+sequence of images. 
+</p>
+<p>In order to achieve this, we will substitute the line 
+</p>
+<p><b>rotate f1x*x&nbsp;&nbsp; rotate f1y*y&nbsp;&nbsp; rotate f1z*z</b>
+<br/>
+by <br/>
+<b>rotate Factor*f1x*x&nbsp;&nbsp;&nbsp; rotate
+Factor*f1y*y&nbsp;&nbsp;&nbsp; rotate Factor*f1z*z</b> 
+</p>
+<p>where <b>Factor</b>&nbsp; is a <i>clock</i> dependent value which
+smoothly changes from <br/>
+0 to 1 as time goes on. <br/>
+(This has
+already been done in the files&nbsp; <b>p1_anim.pov </b>i&nbsp;
+<b>p1_anim.ini</b>, and you <br/>
+just have to modify the parameters
+in <b>p1_anim.ini </b>related to the number of frames <br/>
+contained
+in the interval between t=0 and t=1).&nbsp;<br/>
+<br/>
+The effect of
+the time value (actual value of the clock variable) on the rendered
+image<br/>
+can be examined in a simple manner by means of the +K
+command line option. For example,</p>
+<p>povray +w800 +h600 +a0.2 +K0.2 p1_anim.pov&nbsp;&nbsp;&nbsp; 
+</p>
+<p>will generate the scene with an actual value of the clock variable
+equal to 0.2</p>
+<p>Once you are confident that several clock values in the range
+[0-1] do provide reasonable <br/>
+results, you can execute 
+</p>
+<p>povray +w800 +h600 +a0.2 p1_anim.ini 
+</p>
+<p>8) Have a look at the bunch of png images. If you issue the
+command 
+</p>
+<p>eom&nbsp; *png 
+</p>
+<p>you can quickly pass images forward by pressing the space key, and
+backwards <br/>
+pressing the backspace key.&nbsp; Generate an mpg
+file with the convert command. 
+</p>
+<p>9) In the just created animation, we made the 3 Euler's angles
+change linearly with time, <br/>
+as the <i>clock</i> value grows
+uniformly between the values defined in <b>p1_anim.ini</b>, and the
+<br/>
+lines 
+</p>
+<p><b>// #declare Factor=sin(pi*clock)*sin(pi*clock);</b> <br/>
+<b>#declare
+Factor=clock;</b> 
+</p>
+<p>make trivially Factor to be equal to <i>clock</i>. Create a new
+animation in which the rotation angles <br/>
+Factor*f1x&nbsp;&nbsp;
+Factor*f1y&nbsp; Factor*f1z&nbsp;&nbsp; follow a time dependence of
+the kind sin^2(t), just <br/>
+commenting and uncommenting the
+appropriate lines declaring the <b>Factor</b> variable in the <br/>
+file
+<b>p1_anim.pov </b>. 
+</p>
+<p><br/>
+10 ) Finally repeat the above points using the same rotation
+matrix coming from your id# data <br/>
+with another Euler angles
+characterization, different from the conventional ordering<br/>
+R1(z,fi_z)
+R2(y,fi_y) R3(x,fi_x), i.e, chosing another set of three elementary
+rotations (at<br/>
+your discretion). You will need to compute the
+symbolic contents of the general rotation matrix<br/>
+associated to
+your chosen order, build a new code which computes the 3 new Euler
+angle values,<br/>
+generates the file <b>fisef.out</b>, and modify
+the lines in <b>p1_anim.pov: </b>
+</p>
+<p><b>#fopen Fis &quot;fisef.out&quot; read</b> <br/>
+<b>#read
+(Fis,f1z,f1y,f1x)</b> 
+</p>
+<p>and 
+</p>
+<p><b>rotate f1x*x&nbsp;&nbsp; rotate f1y*y&nbsp;&nbsp; rotate f1z*z</b>
+<br/>
+and/or<br/>
+<b>rotate Factor*f1x*x&nbsp;&nbsp;&nbsp; rotate
+Factor*f1y*y&nbsp;&nbsp;&nbsp; rotate Factor*f1z*z</b> 
+</p>
+<p>so that they reflect accordingly the order you have chosen to
+parametrize the rotation matrix in terms of Euler angles.</p>
+<p>Hand out a report describing the task, problems encountered and
+solutions, your code for calculating<br/>
+the Euler angles in the two
+ordering versions, changes introduced in the .pov files, and the
+animated sequences.&nbsp; 
+</p>
+</body>
+</html>
