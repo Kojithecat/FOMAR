@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+
+
+
+
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR" content="Mozilla/4.77 [en] (X11; U; Linux 2.4.22-10mdk i686) [Netscape]"></head><body>
+<center>
+<h1>Denavit-Hartenberg formalism. Forward kinematic problem.</h1>
+</center>
+<p>&nbsp;
+<br>
+&nbsp;
+<br>
+<br>
+</p>
+<p>For the systems described in the figures:
+<br>
+&nbsp;
+</p>
+<p><img src="fig1b.jpg" height="171" width="243">&nbsp;&nbsp;<img src="fig2b.jpg" height="172" width="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Fig a)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fig b)
+ </p>
+
+<p>1) Find the reference frames associated to each mobile element,
+according
+to the Denavit-Hartenberg rules.
+<br>
+2) Find the corresponding D-H tables (use only 3&nbsp; entry&nbsp; lines, describing just the operations {0 --&gt; 1}, 
+ {1 --&gt; 2},  {2 --&gt; 3})<br>
+3) Create a file 'taula-DH' , with the contents of the D-H values,
+at a position given by&nbsp;&nbsp; <i>fi1 = 110º,&nbsp;&nbsp; fi2
+=
+70º,&nbsp; fi3 = 80º&nbsp; </i>for&nbsp; the a) system,&nbsp;&nbsp; and&nbsp; &nbsp; <i>fi1 = 20º,&nbsp;&nbsp; fi2
+=
+70º,&nbsp; fi3 = 80º&nbsp; </i>for the b) system, that will
+be read by the pov code that you have&nbsp;
+<br>
+in the file&nbsp; <b>man.pov</b> (identify&nbsp; in this file the
+section&nbsp;
+/* Taula Denavit-Hartenberg: */&nbsp;&nbsp; to see the order expected
+for
+the 4-values of each row).&nbsp; Data: <i>L1 = L2 = 1.5,&nbsp; L3 =
+1.5<br>
+</i></p>
+<p><i>Note: In the default {Lab} reference frame used by PovRay, the
+vertical direction (up) corresponds to the y axis.&nbsp; The {0}
+reference frame for the systems a) and b) may differ&nbsp;</i> in that that respect. Therefore the proper location of the {ith} element&nbsp; in each system will require the operations<br>
+</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {Lab}&nbsp; --&gt; {0}&nbsp; --&gt;
+{1}&nbsp; ...&nbsp; --&gt; {i}&nbsp;&nbsp; .&nbsp;&nbsp;&nbsp; Just get
+sure that the .pov&nbsp; code&nbsp; contains all of them.<br>
+<br>
+4) Compute the coordinates (Px, Py, Pz) in the {0} reference frame of a
+point in which a sphere of radius&nbsp;&nbsp; <i>r =0.3</i>&nbsp; will
+be centered,&nbsp; such that when the system configuration is given by
+the values of section 3)&nbsp; the far edge of the last element&nbsp;
+is barely touching the surface of the sphere.&nbsp; Once you have found the (Px,
+Py,
+Pz) coordinates, introduce your calculated values for (Px, Py, Pz) in
+the the&nbsp;&nbsp; <b>man.pov</b> file
+<br>
+so that the sphere is centered at it (last section of the pov code)
+<br>
+<i>5)&nbsp; </i>Check that the calculations are&nbsp; o.k.&nbsp; by
+rendering the
+scene ( is the sphere being just touched by the 3rd arm of the
+manipulator?).
+<br>
+<i>6)</i> Choose a new set of values for the fi's and repeat points
+4) and 5)
+<br>
+<i>7)&nbsp; </i>Modify the file man.pov and create the corresponding man.ini so that you are able to generate
+an animated sequence in which the articulated system unfolds from the
+starting
+position (t = 0) <i>fi1 =&nbsp; fi2 = fi3 = 0&nbsp;&nbsp;&nbsp; </i>to
+the final position of point 6)
+</p>
+
+8) Hand out all calculations, reference frames and D-H tables used in a
+paper (or document) report. including the gif or mpg sequences generated in section 6).
+
+
+</body></html>
