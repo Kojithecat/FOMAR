@@ -1,0 +1,9 @@
+fig_a_references and fig_b_references are the reference frames associated to each mobile element of fig a and b respectively.
+
+
+From {Lab} to {0} we need to apply some rotations:
+
+fig a ->        Rz(-90) Rx(-90)
+fig b ->	Rx( 90) Rz(-90) Rx(-90)
+
+In order to make the animation we multipied the clock to every single rotation on the man.pov file.
